@@ -26,7 +26,7 @@ You can register and find the key at https://dev.elsevier.com/user/registration,
 
 This is needed if you want to use the automated search (Elsevier/ScienceDirect, Springer, Nature, Wiley, PubMed/PubMed Central, and GoogleScholar). The manual PubMed search does not use the **Portal Database**.
 * the token can be configured using the web
-<br>
+`{`<br>
 `mongo`
 <br>
 `use portal`
@@ -83,7 +83,7 @@ db.portal.remove()
 `... }`<br>
 `... ]`<br>
 `... );`<br>
-
+`}`<br>
 
 If everything works well you should see the following response. Of course the `ids` will be different:
 
