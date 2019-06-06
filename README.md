@@ -143,8 +143,8 @@ Apache default directory is: <br>
 
 Replace from the following commands `/Library/WebServer/Documents/` with your apache folder in the following commands:
 
-`sudo mkdir /Library/WebServer/DocumentsPaperBot` <br>
-`sudo cp -r PaperBot/ /Library/WebServer/Documents/PaperBot` <br>
+`sudo mkdir /Library/WebServer/Documents/PaperBot` <br>
+`sudo cp -r PaperBotWeb/ /Library/WebServer/Documents/PaperBot` <br>
 
 In your browser type: http://localhost/PaperBot
 
