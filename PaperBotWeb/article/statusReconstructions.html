@@ -1,0 +1,53 @@
+<form editable-form name="tableform" onaftersave="saveStatusReconstructions()" oncancel="cancelReconstructions()">
+
+        <div class="panel-group" >
+            <div class="panel panel-warning">
+                <div class="panel-heading"><strong>Status reconstructions</strong>
+                    <p>Global Status - {{article.reconstructions.globalStatus}}</p>
+                </div> 
+                <div class="errors">
+                    {{error}}
+                </div>
+                <div>
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tr style="font-weight: bold">
+                            <td>Current status</td>
+                            <td># Reconstructions</td>
+                            <td>Expiration date</td>
+                        </tr>
+                        <tr ng-repeat="reconstructions in article.reconstructions.reconstructionsList| filter: filterStatusReconstructions">
+                            <td><span editable-select="reconstructions.statusDetails"  e-ng-options="g for g in reconstructionStatuses">
+                                    {{reconstructions.statusDetails}}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-text="reconstructions.nReconstructions">
+                                    {{reconstructions.nReconstructions}}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-bsdate="reconstructions.expirationDate" e-is-open="opened.$data" e-ng-click="open($event,'$data')" e-datepicker-popup="yyyy/MM/dd">
+                                    {{(reconstructions.expirationDate| date:'yyyy-MM-dd')||'yyyy/MM/dd'}}
+                                </span>
+                            </td>
+                          
+                            <td><button type="button" ng-show="tableform.$visible" ng-click="deleteStatusReconstructions(statusReconstructions.id)" class="btn btn-danger pull-right">Del</button></td>
+                        </tr>
+                    </table>
+                    <!-- buttons -->
+                    <div class="btn-edit">
+                        <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                            edit
+                        </button>
+                    </div>
+                    <div class="btn-form" ng-show="tableform.$visible">
+                        <button type="button" ng-disabled="tableform.$waiting" ng-click="addStatusReconstructions()" class="btn btn-default pull-right">add row</button>
+                        <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+
+                        <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">cancel</button>
+                    </div> 
+
+                </div>
+            </div>
+        </div>
+</form>

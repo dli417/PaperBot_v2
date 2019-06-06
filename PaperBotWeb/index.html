@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="ArticlesResume">
+
+    <head>
+        <title>PaperBot.io - Find Your Science</title>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script src="articlesResumeController.js"></script>
+        <script src="communications/articlesCommunicationService.js"></script>
+        <script src="services/articlesService.js"></script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="navigate.css">
+    </head>
+    <body ng-controller='articles.controller'>
+        <div class="literMate">
+            <h2 align="center">&#8212; PaperBot v1.0 RC 3 &#8212;</h2>
+            <hr>
+            <p class="literMate">
+            <table>
+            <tr>
+            <td valign="top"> 
+            <img src="https://mason.gmu.edu/~rarmanan/images/robologo.jpg" width="290">            
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td valign="top"> 
+                PaperBot is a configurable, modular, open-source web-based solution to automatically 
+                find and efficiently annotate scientific publications based on full-text 
+                searches across publisher portals. Without user interactions, PaperBot retrieves and 
+                stores article information (full reference, corresponding email contact, and full-text keyword hits) 
+                based on pre-set search logic from scientific literature sources including Wiley, ScienceDirect, Springer/Nature/Frontiers, 
+                PubMed/PubMedCentral, and GoogleScholar. Once saved, all information becomes web accessible, allowing efficient triage of articles based on their actual relevance for the user 
+                and seamless annotation of suitable metadata dimensions.
+            </td>
+            </tr>
+            </table>
+            </p>
+
+        </div>
+        <hr>
+        <div class="search">
+            <a href="portalSearch/searchMenu.html"  style="text-decoration: none"> 
+                <div class="portal_search">
+                    <p class='box-text'>Portal Search<br><span class="badge">{{log.start| date:'yyyy-MM-dd'}}</span></p>
+                </div>
+            </a>
+            <ul>
+                <li>Portal Search gives access to the search setup, including portals, keywords, and search time spans.</li>
+            </ul>
+        </div>
+        <div class="litSearch">
+            <div class="articles">
+                <a href="articleList/evaluateArticlesMenu.html#articles/Pending%20evaluation/0"  style="text-decoration: none">
+                    <div class="evaluate_articles">
+                        <p class='box-text'>Evaluate/Pre-evaluate Publications
+                            <span class="badge">{{count['Pending evaluation']}}</span>                            <br>
+                            Pre-Evaluated Publications
+                            <span class="badge">{{count['Evaluated']}}</span>
+                    </div>
+                </a>
+                <ul>
+                    <li>Evaluate Publications/Pre-Evaluated Publications has 4 possible modes: The user can evaluate publications and decide on their relevance, and file the associated metadata if needed.
+                        The Pre-evaluate publications category is meant for training purposes. If an publications is prescreened as relevant, the publication goes to 
+                        an intermediate collection where it can be later reviewed in detail.
+                        These evaluated publications are directly moved to the designed category (Positive, Negative or Inaccessible). The user can also review pre-evaluate publications, update its data and accept or reject the initial pre-evaluation. 
+                        It is also possible to add publications manually by typing the full reference, or retrieving the information through the associated PMID or DOI.</li>
+                </ul>
+
+            </div>
+            <div class="evaluated">
+                <a href="articleList/positiveArticlesMenu.html#articles/Inaccessible/0"  style="text-decoration: none">
+                    <div class="inaccessible_articles">
+                        <p class='box-text'>Inaccessible Publications<br><span class="badge">{{count.Inaccessible}}</span></p> 
+                    </div>
+                </a>
+                <a href="articleList/positiveArticlesMenu.html#articles/Negative/0"  style="text-decoration: none">
+                    <div class="negative_articles">
+                        <p class='box-text'>Negative Publications<br><span class="badge">{{count.Negative}}</span></p> 
+                    </div>
+                </a>
+
+                <a href="articleList/positiveArticlesMenu.html#articles/Positive/0" style="text-decoration: none">
+                    <div class="positive_articles">
+                        <p class='box-text'>Positive Publications<br><span class="badge">{{count.Positive}}</span></p> 
+                    </div>
+                </a>
+                <ul>
+                    <li> Positive Publications shows the number of publications evaluated as relevant and gives access to their full metadata annotations.</li>
+                    <li> Negative Publications shows the number of publications evaluated as irrelevant and also gives access to their full information.</li>
+                    <li> Inaccessible Publications displays how many publications could not be assessed because their full manuscript, usually PDF files, were non-accessible by the user.	</li>
+
+                </ul>
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="reference">
+            <p>Maraver, P., Arma&ntilde;anzas, R.Gillette T.A., Ascoli, G.A. (2019). PaperBot: open-source web-based search and metadata organization of scientific literature <a href="https://github.com/NeuroMorphoOrg" target="_blank">GitHub code</a></p>
+        </div>
+        <div class="reference">
+        </div>
+              <div ng-include="'footer.html'"></div>
+
+    </body>
+
+</html>

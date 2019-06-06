@@ -1,0 +1,73 @@
+<form editable-form name="tableform" onaftersave="updateMetadata(articleStatus)" oncancel="cancel()" >
+    <fieldset ng-disabled='!articleSaved' ng-class="{true: 'unactive', false: 'active'}[!articleSaved]">
+        <div class="panel-group">
+            <div class="panel panel-success">
+                <div class="panel-heading"><strong>Metadata</strong><span class='errors' ng-if="!articleSaved"> - Save article first to activate the Metadata</span></div> 
+                <table class="table">
+                    <tr>
+                        <td><strong>Comment:</strong></td>
+                        <td><span e-style="width:600px;" editable-textarea="article.metadata.comment">{{article.metadata.comment}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Article Status: </strong></td>
+                        <td>
+                            <span e-style="width:600px;"  editable-radiolist="radio.value" e-ng-options="s.value as s.text for s in statuses">
+                                {{showStatus()}}</span>
+                            <div class="checkbox">
+                                <span e-style="width:600px;"  editable-checkbox="article.metadata.negativeIfNoAnswer" e-title="Negative when no answer received?"> 
+                                    {{ article.metadata.negativeIfNoAnswer && "Move to negative when no response"|| "Don't move to negative when no response"  }}</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>#N Reconstructions:</strong> <br>
+                        <p class="note">Only numbers are accepted</p>
+                        <td ng-if="article.status === 'Positive' && review === '0'"><span>{{totalReconstructions}}</span></td>
+                        <td  ng-if="article.status !== 'Positive' || review === '1'"><span editable-number="article.metadata.nReconstructions">{{article.metadata.nReconstructions}}</span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><strong>Species:</strong></td>
+                        <!--<td><span editable-select="article.metadata.species"  e-ng-options="g for g in species">{{article.metadata.species}}</span></td>-->
+                        <td><span  e-style="width:600px;" editable-text="article.metadata.species[0]">{{article.metadata.species[0]}}</span></td>
+
+                    </tr>
+                    <tr>
+                        <td><strong>Cell Type:</strong></td>
+                        <td><span  e-style="width:600px;" editable-text="article.metadata.cellType[0]">{{article.metadata.cellType[0]}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brain Region:</strong></td>
+                        <td><span  e-style="width:600px;" editable-text="article.metadata.brainRegion[0]">{{article.metadata.brainRegion[0]}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tracing system:</strong></td>
+                        <td><span  e-style="width:600px;" editable-select="article.metadata.tracingSystem[0]" e-ng-options="option for option in tracingOptionList">
+                                {{article.metadata.tracingSystem[0]}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Is metadata finished?:</strong></td>
+                        <td> 
+                            <span e-style="width:600px;" editable-checkbox="article.metadata.finished">{{article.metadata.finished && "Metadata finished"|| "Metadata not finished"  }}</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <div align="right">
+                    <div class="btn-edit">
+                        <button type="button" class="btn btn-info" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"><strong>EDIT</strong></span>
+                        </button>
+                    </div>
+                    <div class="btn-form" ng-show="tableform.$visible">
+                        <button type="submit" class="btn btn-primary" ng-disabled="uiSelectForm.$waiting">SAVE</button>                    
+                        <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">CANCEL</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </fieldset>
+</form>

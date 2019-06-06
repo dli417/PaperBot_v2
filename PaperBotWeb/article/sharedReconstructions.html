@@ -1,0 +1,71 @@
+<form editable-form name="tableform" onaftersave="saveShared()" oncancel="cancelShared()">
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Shared article</strong>
+                <p>Use PMID/DOI to add new articles, if PMID exists title will be populated and a green tick mark will
+                    appear, otherwise red cross implies the article you are trying to link does not exist in the
+                    system </p>
+            </div>
+            <div class="errors">
+                {{error}}
+            </div>
+            <div>
+                <table class="table table-bordered table-hover table-condensed">
+                    <tr style="font-weight: bold">
+                        <td style="width:20%">PMID/DOI</td>
+                        <td style="width:60%">Title</td>
+                        <td style="width:60%">Reconstructions</td>
+
+
+                    </tr>
+                    <tr ng-repeat="shared in article.sharedList| filter: filterShared">
+                        <td>
+                            <!-- editable username (text with validation) -->
+                            <span editable-text="shared.data.pmid" e-uib-typeahead="article.pmid as article.pmid for article in findArticlesByText($viewValue, 'all', $index)">
+                                    {{shared.data.pmid}}
+                                </span>
+                        </td>
+                        <td>
+                                <span editable-text="shared.data.title">
+                                    {{shared.data.title}}
+                                </span>
+                        </td>
+                        <td ng-repeat="reconstructions in shared.reconstructions.reconstructionsList">
+                            {{reconstructions.statusDetails}}<br>
+                            {{reconstructions.nReconstructions}}<br>
+                        </td>
+                        <td>
+                            <div ng-show="shared.articleFound" class="ng-hide"><span class="glyphicon glyphicon-ok"
+                                                                                     aria-hidden="true"></span></div>
+                        </td>
+                        <td>
+                            <div ng-show="shared.articleNotFound" class="ng-hide"><span class="glyphicon glyphicon-remove"
+                                                                                        aria-hidden="true"></span></div>
+                        </td>
+                        <td><button type="button" ng-show="tableform.$visible" ng-click="deleteShared(shared.id)" class="btn btn-danger pull-right">Del</button></td>
+                    </tr>
+                    
+                </table>
+
+                <!-- buttons -->
+                <div class="btn-edit">
+                    <button type="button" class="btn btn-default" ng-show="!tableform.$visible"
+                            ng-click="tableform.$show()">
+                        edit
+                    </button>
+                </div>
+                <div class="btn-form" ng-show="tableform.$visible">
+                    <button type="button" ng-disabled="tableform.$waiting" ng-click="addShared()"
+                            class="btn btn-default pull-right">add row
+                    </button>
+                    <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+                    <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()"
+                            class="btn btn-default">cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

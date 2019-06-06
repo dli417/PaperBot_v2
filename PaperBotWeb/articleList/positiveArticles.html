@@ -1,0 +1,175 @@
+<table class="table">
+        <tr class="success">
+
+            <td>In processing pipeline<br>
+                {{(reconstructions | filter:{specificDetails:'In processing pipeline'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'In processing pipeline'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'In processing pipeline'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>On hold<br>
+                {{(reconstructions | filter:{specificDetails:'On hold'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'On hold'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'On hold'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>In release<br>
+                {{(reconstructions | filter:{specificDetails:'In release'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'In release'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'In release'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>In repository<br>
+                {{(reconstructions | filter:{specificDetails:'In repository'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'In repository'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'In repository'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+
+            <td ng-init="setTotals('Available')">Total<br>
+                {{(total| filter : {'status':'Available'})[0].nArticles}}[{{(total| filter : {'status':'Available'})[0].nReconstructions}}]<br>
+                {{(total| filter : {'status':'Available'})[0].nSharedArticles}}<br>
+            </td>
+
+        </tr>
+        <tr class="info" >
+            <td>To be requested<br>
+                {{(reconstructions | filter:{specificDetails:'To be requested'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'To be requested'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'To be requested'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>Invited<br>
+                {{(reconstructions | filter:{specificDetails:'Invited'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Invited'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Invited'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>Reminder<br>
+                {{(reconstructions | filter:{specificDetails:'Reminder'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Reminder'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Reminder'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>Pestering<br>
+                {{(reconstructions | filter:{specificDetails:'Pestering'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Pestering'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Pestering'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>Ultimatum<br>
+                {{(reconstructions | filter:{specificDetails:'Ultimatum'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Ultimatum'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Ultimatum'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>Positive response<br>
+                {{(reconstructions | filter:{specificDetails:'Positive response'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Positive response'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Positive response'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>Total<br>
+                {{(total| filter : {'status':'Determining availability'})[0].nArticles}}[{{(total| filter : {'status':'Determining availability'})[0].nReconstructions}}]<br>
+                {{(total| filter : {'status':'Determining availability'})[0].nSharedArticles}}<br>
+            </td>
+            
+        </tr>
+        <tr class="danger" >
+            <td>No response<br>
+                {{(reconstructions | filter:{specificDetails:'No response'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'No response'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'No response'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>Communication stopped<br>
+                {{(reconstructions | filter:{specificDetails:'Communication stopped'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Communication stopped'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Communication stopped'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>Request declined<br>
+                {{(reconstructions | filter:{specificDetails:'Request declined'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Request declined'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Request declined'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>Lost data<br>
+                {{(reconstructions | filter:{specificDetails:'Lost data'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'Lost data'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'Lost data'})[0].nSharedArticles | number:2}}
+            </td>
+            <td>No contact information<br>
+                {{(reconstructions | filter:{specificDetails:'No contact information'})[0].nArticles | number:2}}[{{(reconstructions | filter:{specificDetails:'No contact information'})[0].nReconstructions | number:2}} ]<br>
+                shared: {{(reconstructions | filter:{specificDetails:'No contact information'})[0].nSharedArticles | number:2 || 0}}
+            </td>
+            <td>
+            </td>
+
+            <td ng-init="setTotals('Not available')">Total<br>
+                {{(total| filter : {'status':'Not available'})[0].nArticles}}[{{(total| filter : {'status':'Not available'})[0].nReconstructions}}]<br>
+                {{(total| filter : {'status':'Not available'})[0].nSharedArticles}}<br>
+            </td>
+
+        </tr>
+    
+</table>
+<div class="errors">
+    {{error}}
+</div>
+<div class="evaluateArticles">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+        <input type="text" ng-model="text" placeholder="Search articles by exact pmid, exact doi, exact contact email, contains in author last name, or contains in title..." uib-typeahead="text as text for article in findArticlesByText()" typeahead-loading="loadingArticles" typeahead-no-results="noResults" typeahead-wait-ms="500" class="form-control" typeahead-min-length="0">
+        <select ng-model="collection" ng-options="x for x in collectionList" ng-change="findArticlesByText()" >
+        </select>
+    </div>
+    <i ng-show="loadingArticles" class="glyphicon glyphicon-refresh"></i>
+    <hr>
+    <div class ="pagination">
+        <uib-pagination ng-model="currentPage" ng-click="setPage()" total-items="articlePage.totalElements" max-size="10" items-per-page="articlePage.size" previous-text="&lsaquo;" next-text="&rsaquo;" boundary-links="true" first-text="&laquo;" last-text="&raquo;">
+        </uib-pagination> 
+    </div>
+    <div class ="content-numbers">
+        <p>Showing <strong>{{firstElement}} - {{lastElement}} of {{articlePage.totalElements}}</strong> results</p>
+    </div>
+
+    <div class="input-group">
+        <span><h5>Add comma separated pmids to update status details and select status from in first drop down and status to ins econd drop down: </h5>        
+            <textarea  cols="40" rows="5" ng-model="pmidList.values" ng-list required placeholder="Comma separated pmids"></textarea>
+            <select ng-model="statusDetailsFrom" ng-options="details for details in detailsCategoryList"></select></span>
+            <select ng-model="statusDetailsTo" ng-options="details for details in detailsCategoryList"></select></span>
+        <button type="button" ng-click="submitStatusList(pmidList, statusDetailsFrom, statusDetailsTo)" class="btn btn-xlarge btn-default" >
+            <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+        </button>
+        <div ng-show="statusListUpdated" class="ng-hide"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+        <div ng-show="statusListUpdatedError" class="ng-hide"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="tipo1">Usage</th>
+                <th ng-class="{true: 'order-by-selected', false: 'order-by-unselected'}[sortProperty === 'data.approvedDate']"><button type="button" class="sortbutton" ng-click="getArticlesBy('data.approvedDate')">Approved Date <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></th>
+                <th ng-class="{true: 'order-by-selected', false: 'order-by-unselected'}[sortProperty === 'data.publishedDate']"><button type="button" class="sortbutton" ng-click="getArticlesBy('data.publishedDate')">Published Date <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></th>
+                <th ng-class="{true: 'order-by-selected', false: 'order-by-unselected'}[sortProperty === 'data.pmid']"><button type="button" class="sortbutton" ng-click="getArticlesBy('data.pmid')">PMID <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></th>
+                <th ng-class="{true: 'order-by-selected', false: 'order-by-unselected'}[sortProperty === 'data.title']"><button type="button" class="sortbutton" ng-click="getArticlesBy('data.title')">Title <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button></th>
+                <th class="tipo2">Metadata</th>
+                <th class="tipo2">#Reconstructions</th>
+                <th class="tipo1">Specific Details <br>
+                    <select ng-model="filterDetails" ng-options="details for details in detailsCategoryList" ng-change="filterReconstructionsStatus()"></select></span>
+                </th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="article in articlePage.content| filter:search">
+                <td>{{article.data.dataUsage[0]}}</td>
+                <td>{{article.data.approvedDate| date:'yyyy-MM-dd'}}</td>
+                <td>{{article.data.publishedDate| date:'yyyy-MM-dd'}}</td>
+                <td ng-if="article.data.pmid">{{article.data.pmid}}</td>
+                <td ng-if="!article.data.pmid">-</td>
+                <td title="{{article.data.title}}" data-toggle="tooltip"><a href='#/article/{{article.status}}/{{article.id}}/0'>{{article.data.title| limitTo : 30}} ... </td>
+                <td class="metadata-finished" ng-if="article.data.dataUsage[0] === 'Describing' && article.metadata.finished"><span class="glyphicon glyphicon-check"></span></td>
+                <td class="metadata-not-finished" ng-if="article.data.dataUsage[0] === 'Describing' && !article.metadata.finished"><span class="glyphicon glyphicon-edit"></span></td>
+                <td ng-if="article.data.dataUsage[0] != 'Describing'">-</td>
+                <td><span ng-if="article.data.dataUsage[0] === 'Describing' && article.reconstructions !==null" ng-repeat="reconstructions in article.reconstructions.reconstructionsList">
+                        <input class="n-reconstructions" type="text" ng-model="reconstructions.nReconstructions" ng-change="update(article)">
+                        <span ng-show="!$last"><br/></span>
+                    </span>
+                
+                </td>
+                <td><span ng-if="article.data.dataUsage[0] === 'Describing'" ng-repeat="reconstructions in article.reconstructions.reconstructionsList">
+                        <span><select ng-model="reconstructions.statusDetails" ng-options="details for details in detailsCategoryList" ng-change="update(article)"></select>
+                            <span ng-show="!$last"><br/></span>
+                        </span>
+                    </span></td>
+                <td>{{article.metadata.comment}}</td>
+                <td><button type="button" ng-click="submitStatus(article)" class="btn btn-xlarge btn-default" ng-disabled="!article.changed" >
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+                    </button></td>                    
+                <td><div ng-show="article.updated" class="ng-hide"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div></td>
+                <td><div ng-show="article.error" class="ng-hide"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
