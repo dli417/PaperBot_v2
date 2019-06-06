@@ -1,7 +1,7 @@
-var url_literature = 'http://129.174.10.65:8443/articles';
-var url_pubmed = 'http://129.174.10.65:8443/pubmed';
-var url_crossref = 'http://129.174.10.65:8443/crossref';
-var url_search = 'http://129.174.10.65:8443/search';
+var url_literature = 'http://localhost:8443/articles';
+var url_pubmed = 'http://localhost:8443/pubmed';
+var url_crossref = 'http://localhost:8443/crossref';
+var url_search = 'http://localhost:8443/search';
 
 angular.module('articles.communication', []).factory('articlesCommunicationService', function ($http) {
     var getResumeNumbers = function () {
