@@ -1,0 +1,16 @@
+2019-06-06 04:55:43.464  INFO 19164 --- [main] o.p.literature.metadata.Application      : Starting Application on Patricias-MacBook-Pro.local with PID 19164 (/Users/pmaraver/Documents/NetbeansProjects/PaperBot_v2/Metadata-1.0.jar started by pmaraver in /Users/pmaraver/Documents/NetbeansProjects/PaperBot_v2)
+2019-06-06 04:55:43.474 DEBUG 19164 --- [main] o.p.literature.metadata.Application      : Running with Spring Boot v1.5.4.RELEASE, Spring v4.3.9.RELEASE
+2019-06-06 04:55:43.475  INFO 19164 --- [main] o.p.literature.metadata.Application      : No active profile set, falling back to default profiles: default
+2019-06-06 04:55:43.757  INFO 19164 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@49ec71f8: startup date [Thu Jun 06 04:55:43 CEST 2019]; root of context hierarchy
+2019-06-06 04:55:48.287  INFO 19164 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 7170 (http)
+2019-06-06 04:55:48.323  INFO 19164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-06 04:55:48.325  INFO 19164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-06-06 04:55:48.436  INFO 19164 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-06 04:55:48.886  INFO 19164 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-06-06 04:55:48.906  INFO 19164 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-06-06 04:55:48.907  INFO 19164 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-06-06 04:55:48.907  INFO 19164 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-06-06 04:55:48.907  INFO 19164 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-06-06 04:55:52.034  INFO 19164 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-06-06 04:55:52.121  INFO 19164 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 7170 (http)
+2019-06-06 04:55:52.130  INFO 19164 --- [main] o.p.literature.metadata.Application      : Started Application in 10.134 seconds (JVM running for 11.265)
