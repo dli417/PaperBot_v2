@@ -25,13 +25,15 @@ You can register and find the key at https://dev.elsevier.com/user/registration,
 ### 1.3. Upload the portals configuration to the **Portal Database**
 
 This is needed if you want to use the automated search (Elsevier/ScienceDirect, Springer, Nature, Wiley, PubMed/PubMed Central, and GoogleScholar). The manual PubMed search does not use the **Portal Database**.
-* the token can be configured using the web
-`{`<br>
+* The token can be configured using the web once installed
+
+Using the terminal type the following
+<br>
 `mongo`
 <br>
 `use portal`
 <br>
-db.portal.remove()
+`db.portal.remove()`
 <br>
 `db.portal.insertMany([`<br>
 `... {`<br>
