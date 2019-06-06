@@ -173,10 +173,4 @@ Lets update a name for a given tag. For example:
  
  The `metadataFinished` is a nice feature that allows you to remember if you had finished reviewing a paper. If it is set to false, when you navigate to the Positive group of articles a red flag will remind you that there is pending work.
 
-### 3.4. Go to the Wiki to learn how to update the keywords, the portals configuration, launch your first search, and add an article manually
-
-
-### 3.5. Go to the browser & refresh
-
-You will see how the web populates. It is ready to use.
 
